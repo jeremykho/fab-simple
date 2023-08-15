@@ -1,16 +1,5 @@
-# fab_simple
+# FAB Simple
 
-A new Flutter project.
+FAB Simple is a no-frills, battery-saving, one-screen app for accompanying Flesh and Blood matches.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+It features life counters for both Blitz and Classic Constructed formats, energy counters when pitching, and a D6 die roller to determine player turn order
