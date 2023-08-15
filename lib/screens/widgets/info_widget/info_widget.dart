@@ -9,7 +9,7 @@ class InfoWidget extends StatelessWidget {
       children: [
         Text(
           'Want to buy me some coffee or booster packs?',
-          style: Theme.of(context).textTheme.headline3,
+          style: Theme.of(context).textTheme.displaySmall,
         ),
       ],
     );

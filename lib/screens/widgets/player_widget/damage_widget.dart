@@ -56,7 +56,7 @@ class _DamageWidgetState extends State<DamageWidget>
           child: Text(
             (widget.state.value > 0 ? '+' : '') +
                 (widget.state.value != 0 ? widget.state.value.toString() : ''),
-            style: Theme.of(context).textTheme.headline2,
+            style: Theme.of(context).textTheme.displayMedium,
           ),
         ),
       ),

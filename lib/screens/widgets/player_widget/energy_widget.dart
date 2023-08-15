@@ -45,7 +45,7 @@ class EnergyWidget extends StatelessWidget {
                             children: [
                               Text(
                                 state.value.toString(),
-                                style: Theme.of(context).textTheme.headline2,
+                                style: Theme.of(context).textTheme.displayMedium,
                               ),
                               const SizedBox(
                                 width: 10,

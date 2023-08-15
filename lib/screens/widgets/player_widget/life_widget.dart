@@ -12,7 +12,7 @@ class LifeWidget extends StatelessWidget {
   final CounterBloc counterBloc;
   final CounterBloc damageBloc;
 
-  LifeWidget({
+  const LifeWidget({
     super.key,
     required this.counterBloc,
     required this.damageBloc,
@@ -61,7 +61,7 @@ class LifeWidget extends StatelessWidget {
                           child: Center(
                             child: Text(
                               state.value.toString(),
-                              style: Theme.of(context).textTheme.headline1,
+                              style: Theme.of(context).textTheme.displayLarge,
                             ),
                           ),
                         );

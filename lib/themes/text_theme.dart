@@ -7,20 +7,20 @@ class FABSimpleTextTheme {
   FABSimpleTextTheme._();
 
   static TextTheme darkTextTheme = TextTheme(
-    headline1: GoogleFonts.poppins(
+    displayLarge: GoogleFonts.poppins(
         fontSize: 120.0, fontWeight: FontWeight.w500, color: lightColor),
-    headline2: GoogleFonts.poppins(
+    displayMedium: GoogleFonts.poppins(
         fontSize: 44.0, fontWeight: FontWeight.w500, color: lightColor),
-    headline3: GoogleFonts.poppins(
+    displaySmall: GoogleFonts.poppins(
         fontSize: 28.0, fontWeight: FontWeight.w700, color: darkColor),
-    headline4: GoogleFonts.poppins(
+    headlineMedium: GoogleFonts.poppins(
         fontSize: 18.0, fontWeight: FontWeight.w700, color: darkColor),
     // headline5: GoogleFonts.poppins(fontSize: 14.0, fontWeight: FontWeight.w600, color: whiteColor),
-    headline6: GoogleFonts.poppins(
+    titleLarge: GoogleFonts.poppins(
         fontSize: 14.0, fontWeight: FontWeight.w600, color: lightColor),
-    bodyText1: GoogleFonts.poppins(
+    bodyLarge: GoogleFonts.poppins(
         fontSize: 14.0, fontWeight: FontWeight.normal, color: lightColor),
-    bodyText2: GoogleFonts.poppins(
+    bodyMedium: GoogleFonts.poppins(
         fontSize: 14.0, fontWeight: FontWeight.normal, color: lightColor),
     // subtitle2: GoogleFonts.poppins(color: Colors.black54, fontSize: 24),
   );
