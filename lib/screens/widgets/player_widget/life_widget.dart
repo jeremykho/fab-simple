@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:fab_simple/constants/values.dart';
 import 'package:fab_simple/features/counter/bloc/counter_bloc.dart';
 import 'package:fab_simple/features/counter/bloc/counter_event.dart';
@@ -27,69 +29,64 @@ class LifeWidget extends StatelessWidget {
     const Duration timerDuration = Duration(seconds: 5);
     final RestartableTimer timer = RestartableTimer(timerDuration, resetDamage);
 
-    return Column(
-      children: [
-        MultiBlocProvider(
-          providers: [
-            BlocProvider<CounterBloc>(
-              create: (BuildContext context) => counterBloc,
-            ),
-            BlocProvider<CounterBloc>(
-              create: (BuildContext context) => damageBloc,
-            ),
-          ],
-          child: Center(
-            child: Column(
-              children: [
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: IncrementButton(
-                        icon: const Icon(Icons.remove),
-                        isDecrement: true,
-                        longPressValue: incrementLifeOnPress,
-                        counterBloc: counterBloc,
-                        damageBloc: damageBloc,
-                        damageTimer: timer,
-                      ),
-                    ),
-                    BlocBuilder<CounterBloc, CounterState>(
-                      bloc: counterBloc,
-                      builder: (context, state) {
-                        return SizedBox(
-                          width: 180,
-                          child: Center(
-                            child: Text(
-                              state.value.toString(),
-                              style: Theme.of(context).textTheme.displayLarge,
-                            ),
-                          ),
-                        );
-                      },
-                    ),
-                    Expanded(
-                      child: IncrementButton(
-                        icon: const Icon(Icons.add),
-                        isDecrement: false,
-                        longPressValue: incrementLifeOnPress,
-                        counterBloc: counterBloc,
-                        damageBloc: damageBloc,
-                        damageTimer: timer,
-                      ),
-                    ),
-                  ],
-                ),
-                BlocBuilder<CounterBloc, CounterState>(
-                  bloc: damageBloc,
-                  builder: (context, state) {
-                    return DamageWidget(state: state);
-                  },
-                ),
-              ],
-            ),
-          ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<CounterBloc>(
+          create: (BuildContext context) => counterBloc,
+        ),
+        BlocProvider<CounterBloc>(
+          create: (BuildContext context) => damageBloc,
         ),
       ],
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: IncrementButton(
+                  icon: const Icon(Icons.remove),
+                  isDecrement: true,
+                  longPressValue: incrementLifeOnPress,
+                  counterBloc: counterBloc,
+                  damageBloc: damageBloc,
+                  damageTimer: timer,
+                ),
+              ),
+              BlocBuilder<CounterBloc, CounterState>(
+                bloc: counterBloc,
+                builder: (context, state) {
+                  return Container(
+                    width: 180,
+                    alignment: Alignment.center,
+                    child: Text(
+                      state.value.toString(),
+                      style: Theme.of(context).textTheme.displayLarge,
+                    ),
+                  );
+                },
+              ),
+              Expanded(
+                child: IncrementButton(
+                  icon: const Icon(Icons.add),
+                  isDecrement: false,
+                  longPressValue: incrementLifeOnPress,
+                  counterBloc: counterBloc,
+                  damageBloc: damageBloc,
+                  damageTimer: timer,
+                ),
+              ),
+            ],
+          ),
+          BlocBuilder<CounterBloc, CounterState>(
+            bloc: damageBloc,
+            builder: (context, state) {
+              return DamageWidget(state: state);
+            },
+          ),
+        ],
+      ),
     );
   }
 }

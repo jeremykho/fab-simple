@@ -5,6 +5,7 @@ import 'package:fab_simple/screens/home_page.dart';
 import 'package:fab_simple/screens/widgets/center_bar_widget/center_icon_widget.dart';
 import 'package:fab_simple/screens/widgets/die_roll_widget/die_reroll_button.dart';
 import 'package:fab_simple/screens/widgets/die_roll_widget/die_roll_widget.dart';
+import 'package:fab_simple/screens/widgets/info_widget/donation_button.dart';
 import 'package:fab_simple/screens/widgets/info_widget/info_widget.dart';
 import 'package:fab_simple/utilities/popup/popup.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +62,7 @@ class CenterBarWidget extends StatelessWidget {
             CenterIconWidget(
               onPressed: () => Popup(
                 const InfoWidget(),
-                const DieRerollButton(),
+                DonationButton(),
               ).show(context),
               iconData: Icons.info_outline_rounded,
             ),

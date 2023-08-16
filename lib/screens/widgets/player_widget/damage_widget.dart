@@ -48,17 +48,12 @@ class _DamageWidgetState extends State<DamageWidget>
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 180,
-      child: Center(
-        child: FadeTransition(
-          opacity: _animation,
-          child: Text(
-            (widget.state.value > 0 ? '+' : '') +
-                (widget.state.value != 0 ? widget.state.value.toString() : ''),
-            style: Theme.of(context).textTheme.displayMedium,
-          ),
-        ),
+    return FadeTransition(
+      opacity: _animation,
+      child: Text(
+        (widget.state.value > 0 ? '+' : '') +
+            (widget.state.value != 0 ? widget.state.value.toString() : ''),
+        style: Theme.of(context).textTheme.displayMedium,
       ),
     );
   }

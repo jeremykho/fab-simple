@@ -7,3 +7,4 @@ const lightColor = Colors.grey;
 // const darkColor = Color(0xFF272727);
 const darkColor = Colors.black;
 const energyColor = Colors.red;
+const yellowColor = Color(0xAAFFCC00);

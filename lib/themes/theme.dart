@@ -1,4 +1,5 @@
 import 'package:fab_simple/constants/colors.dart';
+import 'package:fab_simple/themes/elevated_button_theme.dart';
 import 'package:fab_simple/themes/text_theme.dart';
 import 'package:flutter/material.dart';
 // import 'package:main_app/src/utils/theme/widget_themes/elevated_button_theme.dart';
@@ -21,7 +22,7 @@ class AppTheme {
     // brightness: Brightness.dark,
     scaffoldBackgroundColor: darkColor,
     textTheme: FABSimpleTextTheme.darkTextTheme,
-    // elevatedButtonTheme: MagicElevatedButtonTheme.darkElevatedButtonTheme,
+    elevatedButtonTheme: FABElevatedButtonTheme.darkElevatedButtonTheme,
     // outlinedButtonTheme: MagicOutlinedButtonTheme.darkOutlinedButtonTheme,
     // inputDecorationTheme: MagicTextFormFieldTheme.darkInputDecorationTheme,
   );
