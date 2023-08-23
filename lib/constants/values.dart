@@ -14,5 +14,8 @@ const incrementLifeOnPress = 5;
 const incrementEnergyOnPress = 3;
 
 // -- Widget Sizes --
-const double centerIconSize = 55;
-const double centerBarSize = 10;
+const double centerIconSize = 40;
+const double centerBarSize = 60;
+const double scrollItemWidth = 120;
+
+const int timerDurationSeconds = 5;

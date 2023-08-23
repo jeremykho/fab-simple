@@ -1,3 +1,4 @@
+import 'package:fab_simple/constants/colors.dart';
 import 'package:fab_simple/constants/values.dart';
 import 'package:fab_simple/features/counter/bloc/counter_state.dart';
 import 'package:flutter/material.dart';
@@ -48,13 +49,18 @@ class _DamageWidgetState extends State<DamageWidget>
 
   @override
   Widget build(BuildContext context) {
+    final int value = widget.state.value;
+    final textTheme = Theme.of(context).textTheme;
     return FadeTransition(
-      opacity: _animation,
-      child: Text(
-        (widget.state.value > 0 ? '+' : '') +
-            (widget.state.value != 0 ? widget.state.value.toString() : ''),
-        style: Theme.of(context).textTheme.displayMedium,
-      ),
-    );
+        opacity: _animation,
+        child: value > 0
+            ? Text(
+                '(+$value)',
+                style: textTheme.displayMedium?.apply(color: greenColor),
+              )
+            : Text(
+                '($value)',
+                style: textTheme.displayMedium?.apply(color: redColor),
+              ));
   }
 }

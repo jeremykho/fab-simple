@@ -35,13 +35,14 @@ class IncrementButton extends StatelessWidget {
         icon: icon,
         onPressed: () {
           damageTimer?.reset();
+          HapticFeedback.vibrate();
           counterBloc.add(IncrementEvent(sign * incrementOnTap, false));
           damageBloc?.add(IncrementEvent(sign * incrementOnTap, true));
         },
       ),
       onLongPress: () {
         damageTimer?.reset();
-        HapticFeedback.vibrate();
+        HapticFeedback.lightImpact();
         counterBloc.add(IncrementEvent(sign * longPressValue, false));
         damageBloc?.add(IncrementEvent(sign * longPressValue, true));
       },

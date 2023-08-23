@@ -20,7 +20,7 @@ class EnergyIconWidget extends StatelessWidget {
             )
           : const BoxDecoration(
               shape: BoxShape.circle,
-              color: energyColor,
+              color: redColor,
             ),
     );
   }

@@ -6,21 +6,19 @@ class FABSimpleTextTheme {
   FABSimpleTextTheme._();
 
   static TextTheme darkTextTheme = TextTheme(
-    displayLarge: GoogleFonts.poppins(
+    displayLarge: GoogleFonts.montserrat(
         fontSize: 120.0, fontWeight: FontWeight.w500, color: lightColor),
-    displayMedium: GoogleFonts.poppins(
-        fontSize: 44.0, fontWeight: FontWeight.w500, color: lightColor),
-    displaySmall: GoogleFonts.poppins(
-        fontSize: 28.0, fontWeight: FontWeight.w700, color: darkColor),
-    headlineMedium: GoogleFonts.poppins(
+    displayMedium: GoogleFonts.montserrat(
+        fontSize: 36.0, fontWeight: FontWeight.w500, color: lightColor),
+    displaySmall: GoogleFonts.montserrat(
+        fontSize: 28.0, fontWeight: FontWeight.w600, color: lightColor),
+    headlineMedium: GoogleFonts.montserrat(
         fontSize: 18.0, fontWeight: FontWeight.w700, color: darkColor),
-    // headline5: GoogleFonts.poppins(fontSize: 14.0, fontWeight: FontWeight.w600, color: whiteColor),
-    titleLarge: GoogleFonts.poppins(
-        fontSize: 18.0, fontWeight: FontWeight.w600, color: lightColor),
-    bodyLarge: GoogleFonts.poppins(
+    titleLarge: GoogleFonts.montserrat(
+        fontSize: 24.0, fontWeight: FontWeight.w600, color: lightColor),
+    bodyLarge: GoogleFonts.montserrat(
         fontSize: 14.0, fontWeight: FontWeight.normal, color: lightColor),
-    bodyMedium: GoogleFonts.poppins(
+    bodyMedium: GoogleFonts.montserrat(
         fontSize: 14.0, fontWeight: FontWeight.normal, color: darkColor),
-    // subtitle2: GoogleFonts.poppins(color: Colors.black54, fontSize: 24),
   );
 }

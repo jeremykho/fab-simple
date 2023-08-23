@@ -17,9 +17,10 @@ class CenterIconWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(5),
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: lightColor,
+        color: darkColor,
+        border: Border.all(width: 3, color: lightColor),
       ),
       child: Stack(
         alignment: AlignmentDirectional.center,
@@ -31,7 +32,7 @@ class CenterIconWidget extends StatelessWidget {
             iconSize: centerIconSize,
             icon: Icon(
               iconData,
-              color: darkColor,
+              color: lightColor,
             ),
           ),
         ],

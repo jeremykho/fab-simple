@@ -9,22 +9,21 @@ class DonationButton extends StatelessWidget {
 
   final Uri _url = Uri.parse(donationLink);
 
-  Future<void> _launchUrl() async {
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: ElevatedButton(
-        onPressed: () {
-          _launchUrl;
-        },
-        // style: Theme.of(context).buttonTheme.dark,
-        child: const Text(
-          'Open Paypal',
+      child: SizedBox(
+        width: 180,
+        child: ElevatedButton(
+          onPressed: () async {
+            if (!await launchUrl(_url)) {
+              throw Exception('Could not launch $_url');
+            }
+          },
+          // style: Theme.of(context).buttonTheme.dark,
+          child: const Text(
+            'Paypal',
+          ),
         ),
       ),
     );
