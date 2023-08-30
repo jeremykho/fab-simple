@@ -8,6 +8,9 @@ class InfoPopupWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Popup(const DieRollWidget(), const DieRerollButton()).show(context);
+    return Popup(
+      child: const DieRollWidget(),
+      actionButtons: [const DieRerollButton()],
+    ).show(context);
   }
 }

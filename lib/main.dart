@@ -20,6 +20,7 @@ class FABSimple extends StatelessWidget {
       title: 'Simple FAB',
       theme: AppTheme.darkTheme,
       home: const HomePage(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

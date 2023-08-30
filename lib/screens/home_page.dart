@@ -6,6 +6,7 @@ import 'package:fab_simple/features/history/history_bloc.dart';
 import 'package:fab_simple/screens/widgets/center_bar_widget/center_bar_widget.dart';
 import 'package:fab_simple/screens/widgets/player_widget/player_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:wakelock/wakelock.dart';
 
 final CounterBloc p1LifeCounterBloc = CounterBloc(defaultBlitzLife);
@@ -20,9 +21,17 @@ final HistoryBloc p2HistoryBloc = HistoryBloc([]);
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
+  void enterFullScreenButKeepBottomOverlay() {
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.manual,
+      overlays: [],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Wakelock.enable();
+    enterFullScreenButKeepBottomOverlay();
     return SafeArea(
       child: Scaffold(
         body: Column(

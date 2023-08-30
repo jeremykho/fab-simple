@@ -13,7 +13,10 @@ class DieRerollButton extends StatelessWidget {
       child: TextButton(
         onPressed: () {
           Navigator.pop(context);
-          Popup(const DieRollWidget(), const DieRerollButton()).show(context);
+          Popup(
+            child: const DieRollWidget(),
+            actionButtons: [const DieRerollButton()],
+          ).show(context);
         },
         child: Text(
           'Re-Roll',

@@ -3,16 +3,19 @@ import 'package:flutter/material.dart';
 
 class Popup {
   final Widget child;
-  final Widget popupButton;
+  final List<Widget> actionButtons;
 
-  Popup(this.child, this.popupButton);
+  Popup({
+    required this.child,
+    required this.actionButtons,
+  });
 
   show(BuildContext context) {
     return showDialog(
       context: context,
       builder: (BuildContext context) {
         return _PopupCall(
-          popupButton: popupButton,
+          actionButtons: actionButtons,
           child: child,
         );
       },
@@ -22,10 +25,10 @@ class Popup {
 
 class _PopupCall extends StatelessWidget {
   final Widget child;
-  final Widget popupButton;
+  final List<Widget> actionButtons;
   const _PopupCall({
     required this.child,
-    required this.popupButton,
+    required this.actionButtons,
   });
 
   @override
@@ -47,9 +50,7 @@ class _PopupCall extends StatelessWidget {
         ),
       ),
       content: child,
-      actions: <Widget>[
-        popupButton,
-      ],
+      actions: actionButtons,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(24),

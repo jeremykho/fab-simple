@@ -1,9 +1,7 @@
-import 'package:fab_simple/constants/colors.dart';
 import 'package:fab_simple/constants/values.dart';
-import 'package:fab_simple/features/counter/bloc/counter_event.dart';
-import 'package:fab_simple/features/history/history_event.dart';
-import 'package:fab_simple/screens/home_page.dart';
 import 'package:fab_simple/screens/widgets/center_bar_widget/center_icon_widget.dart';
+import 'package:fab_simple/screens/widgets/confirm_restart_widget/confirm_restart_button.dart';
+import 'package:fab_simple/screens/widgets/confirm_restart_widget/confirm_restart_widget.dart';
 import 'package:fab_simple/screens/widgets/die_roll_widget/die_reroll_button.dart';
 import 'package:fab_simple/screens/widgets/die_roll_widget/die_roll_widget.dart';
 import 'package:fab_simple/screens/widgets/info_widget/donation_button.dart';
@@ -22,30 +20,25 @@ class CenterBarWidget extends StatelessWidget {
     return Stack(
       alignment: AlignmentDirectional.center,
       children: <Widget>[
-        // const Divider(
-        //   thickness: centerBarSize,
-        //   color: lightColor,
-        //   height: centerBarSize,
-        // ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             CenterIconWidget(
               onPressed: () => Popup(
-                const DieRollWidget(),
-                const DieRerollButton(),
+                child: const DieRollWidget(),
+                actionButtons: [const DieRerollButton()],
               ).show(context),
               iconData: Icons.casino_outlined,
             ),
             CenterIconWidget(
-              onPressed: () {
-                p1LifeCounterBloc.add(const ResetEvent(defaultBlitzLife));
-                p2LifeCounterBloc.add(const ResetEvent(defaultBlitzLife));
-                p1HistoryBloc.add(const ResetHistoryEvent(defaultBlitzLife));
-                p2HistoryBloc.add(const ResetHistoryEvent(defaultBlitzLife));
-                p1EnergyCounterBloc.add(const ResetEvent(minCount));
-                p2EnergyCounterBloc.add(const ResetEvent(minCount));
-              },
+              onPressed: () => Popup(
+                child: const ConfirmRestartWidget(),
+                actionButtons: [
+                  const ConfirmRestartButton(
+                    restartToLife: defaultBlitzLife,
+                  )
+                ],
+              ).show(context),
               overlay: Text(
                 defaultBlitzLife.toString(),
                 style: textTheme.displaySmall,
@@ -53,14 +46,14 @@ class CenterBarWidget extends StatelessWidget {
               ),
             ),
             CenterIconWidget(
-              onPressed: () {
-                p1LifeCounterBloc.add(const ResetEvent(defaultCCLife));
-                p2LifeCounterBloc.add(const ResetEvent(defaultCCLife));
-                p1HistoryBloc.add(const ResetHistoryEvent(defaultCCLife));
-                p2HistoryBloc.add(const ResetHistoryEvent(defaultCCLife));
-                p1EnergyCounterBloc.add(const ResetEvent(minCount));
-                p2EnergyCounterBloc.add(const ResetEvent(minCount));
-              },
+              onPressed: () => Popup(
+                child: const ConfirmRestartWidget(),
+                actionButtons: [
+                  const ConfirmRestartButton(
+                    restartToLife: defaultCCLife,
+                  )
+                ],
+              ).show(context),
               overlay: Text(
                 defaultCCLife.toString(),
                 style: textTheme.displaySmall,
@@ -69,10 +62,9 @@ class CenterBarWidget extends StatelessWidget {
             ),
             CenterIconWidget(
               onPressed: () => Popup(
-                const InfoWidget(),
-                DonationButton(),
+                child: const InfoWidget(),
+                actionButtons: [DonationButton()],
               ).show(context),
-              // iconData: Icons.info_outline_rounded,
               overlay: Text(
                 "i",
                 style: textTheme.displayMedium,
