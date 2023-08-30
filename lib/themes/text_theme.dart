@@ -17,8 +17,8 @@ class FABSimpleTextTheme {
     titleLarge: GoogleFonts.montserrat(
         fontSize: 24.0, fontWeight: FontWeight.w600, color: lightColor),
     bodyLarge: GoogleFonts.montserrat(
-        fontSize: 14.0, fontWeight: FontWeight.normal, color: darkColor),
+        fontSize: 16.0, fontWeight: FontWeight.normal, color: darkColor),
     bodyMedium: GoogleFonts.montserrat(
-        fontSize: 14.0, fontWeight: FontWeight.normal, color: darkColor),
+        fontSize: 16.0, fontWeight: FontWeight.normal, color: darkColor),
   );
 }

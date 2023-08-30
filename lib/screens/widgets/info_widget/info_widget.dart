@@ -14,12 +14,12 @@ class InfoWidget extends StatelessWidget {
         children: [
           Text(
             'Simple FAB is in no way affiliated with Legend Story Studios.',
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.left,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           Text(
             'Legend Story Studios®, Flesh and Blood™, and set names are trademarks of Legend Story Studios. Flesh and Blood characters, cards, logos, and art are property of Legend Story Studios.',
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.left,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           const SizedBox(
@@ -27,7 +27,7 @@ class InfoWidget extends StatelessWidget {
           ),
           Text(
             'Help the developer buy some coffee or booster packs?',
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.left,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
         ],

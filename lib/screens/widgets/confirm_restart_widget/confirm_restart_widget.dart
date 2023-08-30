@@ -23,14 +23,6 @@ class ConfirmRestartWidget extends StatelessWidget {
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
-          // const SizedBox(
-          //   height: 10,
-          // ),
-          // Text(
-          //   'Help the developer buy some coffee or booster packs?',
-          //   textAlign: TextAlign.center,
-          //   style: Theme.of(context).textTheme.headlineMedium,
-          // ),
         ],
       ),
     );

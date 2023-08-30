@@ -20,7 +20,6 @@ class DonationButton extends StatelessWidget {
               throw Exception('Could not launch $_url');
             }
           },
-          // style: Theme.of(context).buttonTheme.dark,
           child: const Text(
             'Paypal',
           ),
@@ -29,17 +28,3 @@ class DonationButton extends StatelessWidget {
     );
   }
 }
-
-// TextButton(
-//           onPressed: () {
-//             _launchUrl;
-//           },
-//           style: TextButton.styleFrom(
-//             textStyle: const TextStyle(fontSize: 20),
-//             backgroundColor: darkColor,
-//           ),
-//           child: Text(
-//             'Open Paypal',
-//             style: Theme.of(context).textTheme.displaySmall,
-//           ),
-//         )
