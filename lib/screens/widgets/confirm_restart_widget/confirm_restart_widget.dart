@@ -6,9 +6,9 @@ class ConfirmRestartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
+      height: 80,
       width: 100,
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -19,7 +19,7 @@ class ConfirmRestartWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           Text(
-            'Life Histories and Floating Energy will also be cleared.',
+            'Life histories and energy resources will also be cleared.',
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodyLarge,
           ),
