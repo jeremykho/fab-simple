@@ -51,7 +51,9 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              const CenterBarWidget(),
+              Container(
+                  margin: EdgeInsets.symmetric(horizontal: isPortrait ? 0 : 20),
+                  child: const CenterBarWidget()),
               Expanded(
                 child: PlayerWidget(
                   lifeBloc: p1LifeCounterBloc,

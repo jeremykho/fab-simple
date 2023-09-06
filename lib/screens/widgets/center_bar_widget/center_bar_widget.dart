@@ -20,78 +20,75 @@ class CenterBarWidget extends StatelessWidget {
     final TextTheme textTheme = Theme.of(context).textTheme;
     final bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Flex(
-        direction: isPortrait ? Axis.horizontal : Axis.vertical,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          CenterIconWidget(
-            onPressed: () => Popup(
-              child: const ConfirmRestartWidget(),
-              actionButtons: [
-                const ConfirmRestartButton(
-                  restartToLife: defaultBlitzLife,
-                )
-              ],
-            ).show(context),
-            overlay: Text(
-              defaultBlitzLife.toString(),
-              style: textTheme.displaySmall,
-              textAlign: TextAlign.center,
-            ),
+    return Flex(
+      direction: isPortrait ? Axis.horizontal : Axis.vertical,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        CenterIconWidget(
+          onPressed: () => Popup(
+            child: const ConfirmRestartWidget(),
+            actionButtons: [
+              const ConfirmRestartButton(
+                restartToLife: defaultBlitzLife,
+              )
+            ],
+          ).show(context),
+          overlay: Text(
+            defaultBlitzLife.toString(),
+            style: textTheme.displaySmall,
+            textAlign: TextAlign.center,
           ),
-          CenterIconWidget(
-            onPressed: () => Popup(
-              child: const ConfirmRestartWidget(),
-              actionButtons: [
-                const ConfirmRestartButton(
-                  restartToLife: defaultCCLife,
-                )
-              ],
-            ).show(context),
-            overlay: Text(
-              defaultCCLife.toString(),
-              style: textTheme.displaySmall,
-              textAlign: TextAlign.center,
-            ),
+        ),
+        CenterIconWidget(
+          onPressed: () => Popup(
+            child: const ConfirmRestartWidget(),
+            actionButtons: [
+              const ConfirmRestartButton(
+                restartToLife: defaultCCLife,
+              )
+            ],
+          ).show(context),
+          overlay: Text(
+            defaultCCLife.toString(),
+            style: textTheme.displaySmall,
+            textAlign: TextAlign.center,
           ),
-          CenterIconWidget(
-            onPressed: () => Popup(
-              child: const DieRollWidget(),
-              actionButtons: [const DieRerollButton()],
-            ).show(context),
-            iconData: Icons.casino_outlined,
+        ),
+        CenterIconWidget(
+          onPressed: () => Popup(
+            child: const DieRollWidget(),
+            actionButtons: [const DieRerollButton()],
+          ).show(context),
+          iconData: Icons.casino_outlined,
+        ),
+        CenterIconWidget(
+          onPressed: () {
+            if (isPortrait) {
+              SystemChrome.setPreferredOrientations([
+                DeviceOrientation.landscapeLeft,
+                DeviceOrientation.landscapeRight,
+              ]);
+            } else {
+              SystemChrome.setPreferredOrientations([
+                DeviceOrientation.portraitDown,
+                DeviceOrientation.portraitUp,
+              ]);
+            }
+          },
+          iconData: Icons.screen_rotation_rounded,
+        ),
+        CenterIconWidget(
+          onPressed: () => Popup(
+            child: const InfoWidget(),
+            actionButtons: [DonationButton()],
+          ).show(context),
+          overlay: Text(
+            "i",
+            style: textTheme.displayMedium,
+            textAlign: TextAlign.center,
           ),
-          CenterIconWidget(
-            onPressed: () {
-              if (isPortrait) {
-                SystemChrome.setPreferredOrientations([
-                  DeviceOrientation.landscapeLeft,
-                  DeviceOrientation.landscapeRight,
-                ]);
-              } else {
-                SystemChrome.setPreferredOrientations([
-                  DeviceOrientation.portraitDown,
-                  DeviceOrientation.portraitUp,
-                ]);
-              }
-            },
-            iconData: Icons.screen_rotation_rounded,
-          ),
-          CenterIconWidget(
-            onPressed: () => Popup(
-              child: const InfoWidget(),
-              actionButtons: [DonationButton()],
-            ).show(context),
-            overlay: Text(
-              "i",
-              style: textTheme.displayMedium,
-              textAlign: TextAlign.center,
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
