@@ -20,17 +20,19 @@ class EnergyWidget extends StatelessWidget {
         builder: (context, state) {
           return Center(
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                IncrementButton(
-                  icon: const Icon(Icons.arrow_left),
-                  isDecrement: true,
-                  longPressValue: incrementEnergyOnPress,
-                  counterBloc: counterBloc,
+                Expanded(
+                  child: IncrementButton(
+                    icon: Icons.arrow_left,
+                    isDecrement: true,
+                    longPressValue: incrementEnergyOnPress,
+                    counterBloc: counterBloc,
+                    buttonHeight: energyWidgetHeight,
+                  ),
                 ),
                 SizedBox(
-                  width: 160,
-                  height: 70,
+                  width: counterWidgetWidth,
+                  height: energyWidgetHeight,
                   child: Center(
                     child: state.value <= maxEnergyIcons
                         ? Row(
@@ -45,11 +47,10 @@ class EnergyWidget extends StatelessWidget {
                             children: [
                               Text(
                                 state.value.toString(),
-                                style: Theme.of(context).textTheme.displayMedium,
+                                style:
+                                    Theme.of(context).textTheme.displayMedium,
                               ),
-                              const SizedBox(
-                                width: 10,
-                              ),
+                              const SizedBox(width: 10),
                               const EnergyIconWidget(
                                 isEmpty: false,
                               ),
@@ -57,11 +58,14 @@ class EnergyWidget extends StatelessWidget {
                           ),
                   ),
                 ),
-                IncrementButton(
-                  icon: const Icon(Icons.arrow_right),
-                  isDecrement: false,
-                  longPressValue: incrementEnergyOnPress,
-                  counterBloc: counterBloc,
+                Expanded(
+                  child: IncrementButton(
+                    icon: Icons.arrow_right,
+                    isDecrement: false,
+                    longPressValue: incrementEnergyOnPress,
+                    counterBloc: counterBloc,
+                    buttonHeight: energyWidgetHeight,
+                  ),
                 ),
               ],
             ),

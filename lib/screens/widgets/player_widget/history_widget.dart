@@ -60,9 +60,12 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                   perspective: 0.001,
                   squeeze: 1.3,
                   childDelegate: ListWheelChildBuilderDelegate(
-                    childCount:
-                        history.length - (counterState.value != 0 ? 0 : 1),
+                    childCount: history.length == 1
+                        ? history.length
+                        : history.length - (counterState.value != 0 ? 0 : 1),
                     builder: (context, index) {
+                      bool damageIsActive =
+                          widget.timer.isActive && index == history.length - 1;
                       return RotatedBox(
                         quarterTurns: 45,
                         child: Center(
@@ -74,8 +77,7 @@ class _HistoryWidgetState extends State<HistoryWidget> {
                                 style:
                                     Theme.of(context).textTheme.displayMedium,
                               ),
-                              widget.timer.isActive &&
-                                      index == history.length - 1
+                              damageIsActive
                                   ? DamageWidget(state: counterState)
                                   : Container()
                             ],

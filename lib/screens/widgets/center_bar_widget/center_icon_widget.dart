@@ -16,17 +16,17 @@ class CenterIconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(5),
+      padding: const EdgeInsets.all(0),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: darkColor,
-        border: Border.all(width: 3, color: lightColor),
+        border: Border.all(width: 2, color: lightColor),
       ),
       child: Stack(
         alignment: AlignmentDirectional.center,
         children: <Widget>[
           overlay ?? Container(),
-          IconButton(
+          IconButton.outlined(
             padding: const EdgeInsets.all(0),
             onPressed: onPressed,
             iconSize: centerIconSize,

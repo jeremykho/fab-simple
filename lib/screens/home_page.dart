@@ -33,33 +33,37 @@ class HomePage extends StatelessWidget {
     Wakelock.enable();
     enterFullScreenButKeepBottomOverlay();
     return SafeArea(
-      child: Scaffold(
-        body: Column(
-          children: [
-            Expanded(
-              child: Transform(
-                alignment: Alignment.center,
-                transform: Matrix4.rotationZ(pi),
-                child: PlayerWidget(
-                  lifeBloc: p2LifeCounterBloc,
-                  energyBloc: p2EnergyCounterBloc,
-                  damageBloc: p2DamageCounterBloc,
-                  historyBloc: p2HistoryBloc,
+      child: Scaffold(body: OrientationBuilder(
+        builder: ((context, orientation) {
+          final bool isPortrait = orientation == Orientation.portrait;
+          return Flex(
+            direction: isPortrait ? Axis.vertical : Axis.horizontal,
+            children: [
+              Expanded(
+                child: Transform(
+                  alignment: Alignment.center,
+                  transform: Matrix4.rotationZ(isPortrait ? pi : 0),
+                  child: PlayerWidget(
+                    lifeBloc: p2LifeCounterBloc,
+                    energyBloc: p2EnergyCounterBloc,
+                    damageBloc: p2DamageCounterBloc,
+                    historyBloc: p2HistoryBloc,
+                  ),
                 ),
               ),
-            ),
-            const CenterBarWidget(),
-            Expanded(
-              child: PlayerWidget(
-                lifeBloc: p1LifeCounterBloc,
-                energyBloc: p1EnergyCounterBloc,
-                damageBloc: p1DamageCounterBloc,
-                historyBloc: p1HistoryBloc,
+              const CenterBarWidget(),
+              Expanded(
+                child: PlayerWidget(
+                  lifeBloc: p1LifeCounterBloc,
+                  energyBloc: p1EnergyCounterBloc,
+                  damageBloc: p1DamageCounterBloc,
+                  historyBloc: p1HistoryBloc,
+                ),
               ),
-            ),
-          ],
-        ),
-      ),
+            ],
+          );
+        }),
+      )),
     );
   }
 }

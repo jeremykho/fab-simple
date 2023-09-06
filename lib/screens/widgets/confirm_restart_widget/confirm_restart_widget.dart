@@ -6,7 +6,7 @@ class ConfirmRestartWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: 100,
       width: 100,
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
       child: Column(

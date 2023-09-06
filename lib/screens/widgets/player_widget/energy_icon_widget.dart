@@ -1,4 +1,5 @@
 import 'package:fab_simple/constants/colors.dart';
+import 'package:fab_simple/constants/values.dart';
 import 'package:flutter/material.dart';
 
 class EnergyIconWidget extends StatelessWidget {
@@ -11,8 +12,8 @@ class EnergyIconWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 30,
-      height: 30,
+      width: energyIconSize,
+      height: energyIconSize,
       decoration: isEmpty
           ? BoxDecoration(
               shape: BoxShape.circle,

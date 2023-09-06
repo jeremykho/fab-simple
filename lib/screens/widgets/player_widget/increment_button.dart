@@ -12,7 +12,8 @@ class IncrementButton extends StatelessWidget {
   final RestartableTimer? damageTimer;
   final bool isDecrement;
   final int longPressValue;
-  final Icon icon;
+  final double buttonHeight;
+  final IconData icon;
 
   const IncrementButton({
     Key? key,
@@ -20,6 +21,7 @@ class IncrementButton extends StatelessWidget {
     required this.isDecrement,
     required this.longPressValue,
     required this.icon,
+    required this.buttonHeight,
     this.damageBloc,
     this.damageTimer,
   }) : super(key: key);
@@ -28,18 +30,21 @@ class IncrementButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var sign = isDecrement ? -1 : 1;
 
-    return GestureDetector(
-      child: IconButton(
-        iconSize: centerIconSize,
-        color: lightColor,
-        icon: icon,
-        onPressed: () {
-          damageTimer?.reset();
-          HapticFeedback.vibrate();
-          counterBloc.add(IncrementEvent(sign * incrementOnTap, false));
-          damageBloc?.add(IncrementEvent(sign * incrementOnTap, true));
-        },
+    return InkResponse(
+      child: SizedBox(
+        height: buttonHeight,
+        child: Icon(
+          icon,
+          color: lightColor,
+          size: incrementIconSize,
+        ),
       ),
+      onTap: () {
+        damageTimer?.reset();
+        HapticFeedback.vibrate();
+        counterBloc.add(IncrementEvent(sign * incrementOnTap, false));
+        damageBloc?.add(IncrementEvent(sign * incrementOnTap, true));
+      },
       onLongPress: () {
         damageTimer?.reset();
         HapticFeedback.lightImpact();
